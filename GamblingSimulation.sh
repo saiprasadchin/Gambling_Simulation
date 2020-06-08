@@ -118,6 +118,9 @@ do
                         	start=-1
                         	break
                         	;;
+			*)
+				echo "Enter valid input"
+				;;
                 esac
         else
                 start=-1
