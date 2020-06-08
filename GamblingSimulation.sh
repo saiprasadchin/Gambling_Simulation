@@ -1,7 +1,10 @@
 echo "Wellcome to Gambling Simulation"
+start=1
+function play(){
+declare -a day
 upper=150
 lower=50
-total_amount=0
+amount=0
 for((i=1;i<=30;i++))
 do
         stake=100
@@ -20,6 +23,10 @@ do
 	let amount+=$((100 - $stake))
 	day[$i]=$amount
 done
+
+daysWon=0
+daysLost=0
+
 
 check=0
 for((i=1;i<=30;i++))
@@ -92,3 +99,56 @@ for key2 in ${unlucky[@]}
 do
         echo "Unlukiest day is $key2"
 done
+
+}
+play
+while [[ $start -gt 0 ]]
+do
+
+        if [[ $daysWon -gt $daysLost ]]
+        then
+                echo "You won $amount, do you want to continue ?"
+                read -p "Press 1 for Yes 2 for No : " continue
+                #read continue
+                case $continue in
+                        1)
+                        	play
+                        	;;
+                        2)
+                        	start=-1
+                        	break
+                        	;;
+                esac
+        else
+                start=-1
+
+        fi
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
