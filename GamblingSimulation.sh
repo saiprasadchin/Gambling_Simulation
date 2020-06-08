@@ -17,27 +17,10 @@ do
                         let "stake-=1"
                 fi
         done
-        #if [ $stake -eq 150 ]
-        #then
-        #        let "total_amount+=50"
-        #        echo "Day $i won "   $total_amount
-        #else
-        #        let "total_amount-=50"
-        #        echo "Day $i loss "  $total_amount
-        #fi
+
 	let amount+=$((100 - $stake))
 	day[$i]=$amount
 done
-#for((i=2;i<=20;i++))
-#do
-#	 if [[ ${day[$i]} -gt ${day[$(($i-1))]} ]]
-#       then
-#                echo "Day $i won  : ${day[$i]}"
-#        else
-#                echo "Day $i loss : ${day[$i]}"
-#        fi
-       #echo "day $i :  ${day[$i]}"
-#done
 
 check=0
 for((i=1;i<=20;i++))
