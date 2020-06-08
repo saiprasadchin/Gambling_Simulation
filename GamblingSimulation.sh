@@ -1,9 +1,8 @@
 echo "Wellcome to Gambling Simulation"
-stake=100
 upper=150
 lower=50
 total_amount=0
-for((i=1;i<=20;i++))
+for((i=1;i<=30;i++))
 do
         stake=100
         while [[ $stake -gt $lower && $stake -lt $upper  ]]
@@ -23,12 +22,14 @@ do
 done
 
 check=0
-for((i=1;i<=20;i++))
+for((i=1;i<=30;i++))
 do
         if [[ ${day[$i]} -gt $check ]]
         then
+		let daysWon++
                 echo "Day $i won  : ${day[$i]}$"
         else
+		let daysLost++
                 echo "Day $i loss  : ${day[$i]}$"
         fi
         check=${day[$i]}
@@ -41,4 +42,5 @@ then
 else
         echo "Gambler Won by $amount$"
 fi
-
+echo "Number of wining days are : $daysWon"
+echo "Number of lossing days are : $daysLost"
