@@ -46,8 +46,8 @@ echo "Number of wining days are : $daysWon"
 echo "Number of lossing days are : $daysLost"
 
 echo
-MAX=0 #${day[0]}
-MIN= #${day[0]}
+MAX=0
+MIN=0
 declare -a lucky
 j=0
 k=0
