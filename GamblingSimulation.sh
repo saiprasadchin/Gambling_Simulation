@@ -44,3 +44,51 @@ else
 fi
 echo "Number of wining days are : $daysWon"
 echo "Number of lossing days are : $daysLost"
+
+echo
+MAX=0 #${day[0]}
+MIN= #${day[0]}
+declare -a lucky
+j=0
+k=0
+for (( i=1; i<=30; i++ ))
+do
+        if [[ ${day[$i]} == $MAX ]]
+        then
+                lucky[$j]=$i
+                let j++
+
+        elif [[ ${day[$i]} -gt $MAX ]]
+        then
+		lucky=( )
+                MAX=${day[$i]}
+                j=0
+                lucky[$j]=$(($i))
+                let j++
+        fi
+
+	if [[ ${day[$i]} == $MIN ]]
+        then
+                unlucky[$k]=$i
+                let k++
+
+        elif [[ ${day[$i]} -lt $MIN ]]
+        then
+                unlucky=( )
+                MIN=${day[$i]}
+                k=0
+                unlucky[$k]=$(($i))
+                let k++
+        fi
+
+done
+echo
+for key in ${lucky[@]}
+do
+	echo "Lukiest day is $key"
+done
+echo
+for key2 in ${unlucky[@]}
+do
+        echo "Unlukiest day is $key2"
+done
