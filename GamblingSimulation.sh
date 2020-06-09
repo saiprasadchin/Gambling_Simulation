@@ -1,6 +1,6 @@
 echo "Wellcome to Gambling Simulation"
 
-stake[1]=100
+stake=100
 won=0
 lost=0
 bet=$((RANDOM % 2))
